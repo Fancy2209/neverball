@@ -484,10 +484,6 @@ void video_push_persp(float fov, float n, float f)
         GLfloat s = fsinf(r);
         GLfloat c = fcosf(r) / s;
         
-        #ifdef __wii__
-        if (CONF_GetAspectRatio() == CONF_ASPECT_16_9)
-        else
-        #endif
         GLfloat a = ((GLfloat) video.device_w /
                      (GLfloat) video.device_h);
 
