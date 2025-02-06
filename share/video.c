@@ -483,7 +483,7 @@ void video_push_persp(float fov, float n, float f)
         GLfloat r = fov / 2 * V_PI / 180;
         GLfloat s = fsinf(r);
         GLfloat c = fcosf(r) / s;
-        
+
         GLfloat a = ((GLfloat) video.device_w /
                      (GLfloat) video.device_h);
 
