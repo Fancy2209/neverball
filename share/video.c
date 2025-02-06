@@ -265,7 +265,7 @@ int video_mode(int f, int w, int h)
             return 0;
         
         #ifdef __wii__
-        glViewport(0, 0, (video.device_w > 640) ? 640 : video.device_W, video.device_h);
+        glViewport(0, 0, (video.device_w > 640) ? 640 : video.device_w, video.device_h);
         #else
         glViewport(0, 0, video.device_w, video.device_h);
         #endif
