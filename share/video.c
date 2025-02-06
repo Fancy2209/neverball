@@ -263,8 +263,12 @@ int video_mode(int f, int w, int h)
 
         if (!glext_init())
             return 0;
-
+        
+        #ifdef __wii__
+        glViewport(0, 0, (video.device_w > 640) ? 640 : video.device_W, video.device_h);
+        #else
         glViewport(0, 0, video.device_w, video.device_h);
+        #endif
         glClearColor(0.0f, 0.0f, 0.0f, 0.0f);
 
         glEnable(GL_NORMALIZE);
@@ -479,7 +483,11 @@ void video_push_persp(float fov, float n, float f)
         GLfloat r = fov / 2 * V_PI / 180;
         GLfloat s = fsinf(r);
         GLfloat c = fcosf(r) / s;
-
+        
+        #ifdef __wii__
+        if (CONF_GetAspectRatio() == CONF_ASPECT_16_9)
+        else
+        #endif
         GLfloat a = ((GLfloat) video.device_w /
                      (GLfloat) video.device_h);
 
